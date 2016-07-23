@@ -15,11 +15,12 @@ function unified_inventory.demangle_for_formspec(str)
 	return string.gsub(str, "_([0-9]+)_", function (v) return string.char(v) end)
 end
 
-function unified_inventory.get_player_main(player, formspec)
+function unified_inventory.get_player_main(player, formspec, n)
 	-- Player inventory
 	formspec[n] = "listcolors[#00000000;#00000000]"
 	formspec[n+1] = "list[current_player;main;0,"..(ui_peruser.formspec_y + 3.5)..";8,4;]"
-	return formspec,2
+	n=n+2
+	return formspec,n
 end
 
 function unified_inventory.get_per_player_formspec(player_name)
@@ -125,9 +126,7 @@ function unified_inventory.get_formspec(player, page)
 	end
 
 	if fsdata.draw_inventory ~= false then
-		local np
-		formspec, np = unified_inventory.get_player_main(player, formspec)
-		n=n+np
+		formspec, n = unified_inventory.get_player_main(player, formspec, n)
 	end
 
 	if fsdata.draw_item_list == false then
