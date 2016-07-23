@@ -126,7 +126,7 @@ function unified_inventory.get_formspec(player, page)
 	end
 
 	if fsdata.draw_inventory ~= false then
-		formspec, n = unified_inventory.get_player_main(player, formspec, ui_per_use, n)
+		formspec, n = unified_inventory.get_player_main(player, formspec, ui_peruser, n)
 	end
 
 	if fsdata.draw_item_list == false then
