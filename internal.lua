@@ -15,7 +15,7 @@ function unified_inventory.demangle_for_formspec(str)
 	return string.gsub(str, "_([0-9]+)_", function (v) return string.char(v) end)
 end
 
-function unified_inventoy.get_player_main(player, formspec)
+function unified_inventory.get_player_main(player, formspec)
 	-- Player inventory
 	formspec[n] = "listcolors[#00000000;#00000000]"
 	formspec[n+1] = "list[current_player;main;0,"..(ui_peruser.formspec_y + 3.5)..";8,4;]"
